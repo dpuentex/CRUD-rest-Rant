@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 
+app.use("/place", require("./controllers/places"));
+
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
