@@ -19,7 +19,12 @@ router.get("/", (req, res) => {
     },
   ];
 
+  // Renders Places/Index
   res.render("places/index", { places });
+});
+
+router.get("/new", (req, res) => {
+  res.render("places/new");
 });
 
 module.exports = router;
