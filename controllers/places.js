@@ -1,5 +1,9 @@
 const router = require("express").Router();
 
+router.get("/new", (req, res) => {
+  res.render("places/new");
+});
+
 // GET /places
 router.get("/", (req, res) => {
   let places = [
@@ -17,14 +21,24 @@ router.get("/", (req, res) => {
       cuisines: "Coffee, Bakery",
       pic: "https://catsherdyou.com/wp-content/uploads/2099/12/O_Cat_Cafe_000_wm.jpg",
     },
-  ];
-
-  // Renders Places/Index
+  ]; // Renders Places/Index
   res.render("places/index", { places });
 });
 
-router.get("/new", (req, res) => {
-  res.render("places/new");
+router.post("/", (req, res) => {
+  console.log(req.body);
+  if (!req.body.pic) {
+    // Default image if one is not provided
+    req.body.pic = "http://placekitten.com/400/400";
+  }
+  if (!req.body.city) {
+    req.body.city = "Anytown";
+  }
+  if (!req.body.state) {
+    req.body.state = "USA";
+  }
+  places.push(req.body);
+  res.redirect("/places");
 });
 
 module.exports = router;

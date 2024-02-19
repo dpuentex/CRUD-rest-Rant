@@ -1,20 +1,22 @@
 const React = require("react");
 const Def = require("../default");
 
-function index(data) {
-  let placesFormatted = data.places.map((place) => {
-    return (
-      <div className="col-sm-6">
-        <h2>{place.name}</h2>
-        <p className="text-center">{place.cuisines}</p>
-        <img src={place.pic} alt={place.name} />
-        <p className="text-center">
-          Located in {place.city}, {place.state}
-        </p>
-      </div>
-    );
-  });
+// Define the function component named Index, which takes a data object as its argument
+function Index({ places }) {
+  // Map over the places array to generate JSX elements representing each place
+  let placesFormatted = places.map((place) => (
+    <div key={place.name} className="col-sm-6">
+      {/* Render the name, cuisines, image, and location information for each place */}
+      <h2>{place.name}</h2>
+      <p className="text-center">{place.cuisines}</p>
+      <img src={place.pic} alt={place.name} />
+      <p className="text-center">
+        Located in {place.city}, {place.state}
+      </p>
+    </div>
+  ));
 
+  // Return the JSX representing the list of places wrapped in the Def component
   return (
     <Def>
       <main>
@@ -25,4 +27,5 @@ function index(data) {
   );
 }
 
-module.exports = index;
+// Export the Index component as the default export from the module
+module.exports = Index;
