@@ -8,8 +8,9 @@ app.set("view engine", "jsx");
 app.engine("jsx", require("express-react-views").createEngine());
 app.use(express.static("public"));
 
-app.use("/places", require("./controllers/places"));
+// do not switch the following two lines or you will not enjoy a post
 app.use(express.urlencoded({ extended: true }));
+app.use("/places", require("./controllers/places"));
 
 app.get("/", (req, res) => {
   res.render("home");
