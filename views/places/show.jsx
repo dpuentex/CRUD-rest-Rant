@@ -41,4 +41,10 @@ const show = (data) => {
   );
 };
 
+// <form action={`/places/${data.id}?_method=DELETE`} method="POST">
+//               <button type="submit" className="btn btn-danger">
+//                 <i className="bi bi-trash"></i> Delete
+//               </button>
+//             </form>
+
 module.exports = show;
