@@ -4,11 +4,11 @@ const Def = require("../default");
 // Define the function component named Index, which takes a data object as its argument
 function Index(data) {
   // Map over the places array to generate JSX elements representing each place
-  let placesFormatted = data.places.map((place, index) => {
+  let placesFormatted = data.places.map((place) => {
     return (
       <div className="col-sm-6">
         <h2>
-          <a href={`/places/${index}`}>{place.name}</a>
+          <a href={`/places/${place.id}}`}>{place.name}</a>
         </h2>
         <p className="text-center">{place.cuisines}</p>
         <img src={place.pic} alt={place.name} />
