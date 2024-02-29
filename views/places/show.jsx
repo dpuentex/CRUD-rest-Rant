@@ -58,13 +58,19 @@ const show = (data) => {
         </div>
         <div className="row align-items-center">
           <div className="col">
-            <a href={`/places/${data.id}/edit`} className="btn btn-warning">
+            <a
+              href={`/places/${data.place.id}/edit`}
+              className="btn btn-warning"
+            >
               <i className="bi bi-pencil"></i> Edit
             </a>
             <h2>Description</h2>
             <h3>{data.place.showEstablished()}</h3>
 
-            <form action={`/places/${data.id}?_method=DELETE`} method="POST">
+            <form
+              action={`/places/${data.place.id}?_method=DELETE`}
+              method="POST"
+            >
               <button type="submit" className="btn btn-danger">
                 <i className="bi bi-trash"></i> Delete
               </button>
